@@ -23,8 +23,6 @@ $Header__ContactsItems__offsetX = 8px
 $Footer__fontSize = 12px
 $Footer__fontHeight = 16px
 
-
-
 // Mixins
 a($color = $_Color__white)
   text-decoration none
@@ -36,7 +34,8 @@ a($color = $_Color__white)
   &:hover
     background-image: linear-gradient(to right, rgba($color, .8) 50%, rgba($color, .8) 100%);
 
-
+gradient($color)
+  background-image: radial-gradient(ellipse at center, rgba(darken($color, 50%), 1) 0%, rgba($color, 1) 100%);
 
 // Markup
 html,
@@ -81,15 +80,6 @@ body
   background-size cover
   position relative
 
-  &_aircraft
-    background-image url(aircraft.jpg)
-  &_office
-    background-image url(office.jpg)
-  &_territory
-    background-image url(territory.jpg)
-  &_garbage
-    background-image url(garbage.jpg)
-
   h1,
   h2
     padding 0
@@ -108,8 +98,6 @@ body
   font-size $Footer__fontSize
   line-height $Footer__fontHeight
 
-
-
 // Adaptive
 @media screen and (min-width: 641px) // Large screen
   .Header
@@ -122,6 +110,16 @@ body
       right $_Section__offsetX - $Header__ContactsItems__offsetX
       top $Header__padY + ceil(($Header__Logo__height / 2) - ($_Font_regular__height / 2))
 
+  .Section
+    &_aircraft
+      background-image url(aircraft_1600.jpg)
+    &_office
+      background-image url(office_1600.jpg)
+    &_territory
+      background-image url(territory_1600.jpg)
+    &_garbage
+      background-image url(garbage_1600.jpg)
+
 @media screen and (max-width: 640px) // Small screen
   .Header
 
@@ -131,3 +129,13 @@ body
     &__Contacts
       text-align center
       margin-top $Header__padY
+
+  .Section
+    &_aircraft
+      background-image url(aircraft_640.jpg)
+    &_office
+      background-image url(office_640.jpg)
+    &_territory
+      background-image url(territory_640.jpg)
+    &_garbage
+      background-image url(garbage_640.jpg)

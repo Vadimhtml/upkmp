@@ -21,7 +21,11 @@ function wrapPipe(taskFn) {
     }
 }
 
-gulp.task('default', ['styl', 'pug', 'js', 'assets'], function () {
+gulp.task('default', ['styl', 'pug', 'js', 'assets'], function (cb) {
+    cb();
+});
+
+gulp.task('watch', ['default'], function () {
     gulp.watch('./src/**/*.styl', ['styl']);
     gulp.watch('./src/**/*.pug', ['pug']);
     gulp.watch('./src/**/*.js', ['js']);
