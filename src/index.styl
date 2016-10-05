@@ -11,6 +11,7 @@ $_Font__common = $_Font__custom, $_Font__native
 
 $_Font_regular__size = 16px
 $_Font_regular__height = 22px
+$_Font_regular__weight = 300
 
 $Header__padY = 14px
 
@@ -48,6 +49,7 @@ body
 body
   font-family $_Font__common
   font-size $_Font_regular__size
+  font-weight $_Font_regular__weight
   line-height $_Font_regular__height
   background-color $_Color__dark
   color $_Color__white
@@ -92,13 +94,13 @@ body
   h2
     padding 0
     margin 0
-    font-weight normal
+    font-weight inherit
     font-size 28px
     position absolute
     left 50%
     top 50%
     transform: translate(-50%, -50%)
-    text-shadow: 0 0 4px rgba(0, 0, 0, .8);
+    text-shadow: 0 0 10px rgba(0, 0, 0, .8)
 
 .Footer
   padding $Header__padY $_Section__offsetX
