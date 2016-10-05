@@ -49,6 +49,6 @@ gulp.task('js', wrapPipe(function (success, error) {
 }));
 
 gulp.task('assets', wrapPipe(function (success, error) {
-    return gulp.src(['./src/**/*.jpg', './src/**/*.png', './src/**/*.gif'])
+    return gulp.src(['./src/**/*.jpg', './src/**/*.png', './src/**/*.gif', './src/**/*.svg'])
         .pipe(gulp.dest(buildPath));
 }));

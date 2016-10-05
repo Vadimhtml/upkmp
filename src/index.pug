@@ -1,18 +1,40 @@
+- var Company__Name_short = "ООО «УПК-МП»"
+- var Company__Email = "inbox@upkmp.ru"
 doctype html
 html
     head
-        title ООО «УПК-МП»
+        title= Company__Name_short
         meta(charset="utf-8")
+        meta(name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no")
         link(href="index.css", rel="stylesheet", type="text/css", media="screen")
         link(href="//fonts.googleapis.com/css?family=Open+Sans:300&subset=latin,cyrillic", rel="stylesheet", type="text/css")
 
     body
-        .aircraft
-            h1 Уборка пассажирских и грузовых воздушных судов
-        .office
-            h1 Уборка помещений
-        .garbage
-            h1 Вывоз мусора
-        .territory
-            h1 Уборка территорий
+        header.Header
+            img.Header__Logo(src="Header__Logo.svg", onerror="this.onerror=null;this.src='Header__Logo.png'" alt= Company__Name_short)
+            .Header__Contacts
+                a.Header__Email(href="mailto:" + Company__Email)= Company__Email
+                    wbr
 
+
+
+
+
+
+
+
+
+
+
+
+
+        //    .contacts
+        //        .mail
+        //            a(href="mailto:inbox@upkmp.ru") inbox@upkmp.ru
+        //    // .flag
+        //
+        //.aircraft Уборка пассажирских и грузовых воздушных судов
+        //.office Уборка помещений
+        //.territory Уборка территорий
+        //.garbage Вывоз мусора
+        //footer Общество с ограниченной ответственностью «Управленческая Компания Многоотраслевая Первая», ОГРН 1167746836234, ИНН 7728347882, КПП 772801001
