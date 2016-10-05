@@ -19,6 +19,11 @@ $Header__Logo__width = 303px
 
 $Header__ContactsItems__offsetX = 8px
 
+$Footer__fontSize = 12px
+$Footer__fontHeight = 16px
+
+
+
 // Mixins
 a($color = $_Color__white)
   text-decoration none
@@ -29,6 +34,8 @@ a($color = $_Color__white)
   background-image: linear-gradient(to right, rgba($color, .5) 50%, rgba($color, .5) 100%);
   &:hover
     background-image: linear-gradient(to right, rgba($color, .8) 50%, rgba($color, .8) 100%);
+
+
 
 // Markup
 html,
@@ -64,6 +71,43 @@ body
     white-space nowrap
     margin: 0 $Header__ContactsItems__offsetX
 
+.Section
+  height 60%
+  background-position center
+  background-color transparent
+  background-repeat no-repeat
+  background-size cover
+  position relative
+
+  &_aircraft
+    background-image url(aircraft.jpg)
+  &_office
+    background-image url(office.jpg)
+  &_territory
+    background-image url(territory.jpg)
+  &_garbage
+    background-image url(garbage.jpg)
+
+  h1,
+  h2
+    padding 0
+    margin 0
+    font-weight normal
+    font-size 28px
+    position absolute
+    left 50%
+    top 50%
+    transform: translate(-50%, -50%)
+    text-shadow: 0 0 4px rgba(0, 0, 0, .8);
+
+.Footer
+  padding $Header__padY $_Section__offsetX
+  text-align center
+  font-size $Footer__fontSize
+  line-height $Footer__fontHeight
+
+
+
 // Adaptive
 @media screen and (min-width: 641px) // Large screen
   .Header
@@ -85,86 +129,3 @@ body
     &__Contacts
       text-align center
       margin-top $Header__padY
-
-//a
-//  color #fff
-//
-//header,
-//footer
-//  background-color #47c
-//  height 64px
-//  line-height 64px
-//
-//
-//
-//.logo
-//  padding 0
-//  margin 8px 0 0 16px
-//  border 0
-//  vertical-align top
-//
-//.contacts
-//  position absolute
-//  right 0
-//  top 0
-//
-//
-//.flag
-//  position absolute
-//  left 0
-//  top 0
-//  height 64px
-//  width 200px
-//  background-color #00f
-//  transform skew(-45deg, 0)
-//  &::before,
-//  &::after
-//    display block
-//    content ''
-//    position absolute
-//    top 0
-//    bottom 0
-//    width 33%
-//  &::before
-//    left 0
-//    background-color #fff
-//  &::after
-//    right 0
-//    background-color #f00
-//
-//
-//.aircraft,
-//.office,
-//.garbage,
-//.territory
-//  height 60%
-//  background-position center
-//  background-color transparent
-//  background-repeat no-repeat
-//  background-size cover
-//  color white
-//  position relative
-//  color transparent
-//
-//.aircraft
-//  background-image  url(aircraft.jpg)
-//
-//.office
-//  background-image  url(office.jpg)
-//
-//.garbage
-//  background-image  url(garbage.jpg)
-//
-//.territory
-//  background-image  url(territory.jpg)
-//
-//h1
-//  margin 0
-//  font-size 24px
-//  position: absolute
-//  left 20px
-//  background red
-//  border-bottom-left-radius 10px
-//  border-bottom-right-radius 10px
-//  padding 0 20px 5px
-//  background linear-gradient(to bottom, #a90329 0%,#6d0019 100%)

@@ -1,5 +1,9 @@
 - var Company__Name_short = "ООО «УПК-МП»"
+- var Company__Name_full = "Общество с ограниченной ответственностью «Управленческая Компания Многоотраслевая Первая»"
 - var Company__Email = "inbox@upkmp.ru"
+- var Company__OGRN = "1167746836234"
+- var Company__INN = "1167746836234"
+- var Company__KPP = "772801001"
 doctype html
 html
     head
@@ -16,25 +20,13 @@ html
                 a.Header__Email(href="mailto:" + Company__Email)= Company__Email
                     wbr
 
+        .Section.Section_aircraft
+            h1 — Уборка воздушных судов
+        .Section.Section_office
+            h2 — Уборка помещений
+        .Section.Section_territory
+            h2 — Уборка территорий
+        .Section.Section_garbage
+            h2 — Вывоз мусора
 
-
-
-
-
-
-
-
-
-
-
-
-        //    .contacts
-        //        .mail
-        //            a(href="mailto:inbox@upkmp.ru") inbox@upkmp.ru
-        //    // .flag
-        //
-        //.aircraft Уборка пассажирских и грузовых воздушных судов
-        //.office Уборка помещений
-        //.territory Уборка территорий
-        //.garbage Вывоз мусора
-        //footer Общество с ограниченной ответственностью «Управленческая Компания Многоотраслевая Первая», ОГРН 1167746836234, ИНН 7728347882, КПП 772801001
+    footer.Footer= Company__Name_full + ", ОГРН " + Company__OGRN + ", ИНН " + Company__INN + ", КПП " + Company__KPP
