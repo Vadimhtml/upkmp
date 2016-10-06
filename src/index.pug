@@ -1,6 +1,8 @@
 - var Company__Name_short = "ООО «УПК-МП»"
 - var Company__Name_full = "Общество с ограниченной ответственностью «Управленческая Компания Многоотраслевая Первая»"
 - var Company__Email = "inbox@upkmp.ru"
+- var Company__Phone = "+74952042976"
+- var Company__Phone_formated = "(495) 204-29-76"
 - var Company__OGRN = "1167746836234"
 - var Company__INN = "1167746836234"
 - var Company__KPP = "772801001"
@@ -10,15 +12,21 @@ html
         title= Company__Name_short
         meta(charset="utf-8")
         meta(name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no")
+
+        meta(name="format-detection", content="telephone=no")
+        meta(http-equiv="x-rim-auto-match", content="none")
+
         link(href="index.css", rel="stylesheet", type="text/css", media="screen")
-        link(href="https://fonts.googleapis.com/css?family=Open+Sans:300&subset=latin,cyrillic", rel="stylesheet", type="text/css")
+        link(href="https://fonts.googleapis.com/css?family=Open+Sans:300&subset=cyrillic,cyrillic-ext,latin-ext", rel="stylesheet", type="text/css")
 
     body
         header.Header
             img.Header__Logo(src="Header__Logo.svg", onerror="this.onerror=null;this.src='Header__Logo.png'" alt= Company__Name_short)
             .Header__Contacts
+                a.Header__Phone(href="tel:" + Company__Phone)= Company__Phone_formated
+                wbr
                 a.Header__Email(href="mailto:" + Company__Email)= Company__Email
-                    wbr
+                wbr
 
         .Section.Section_aircraft
             h1 — Уборка воздушных судов
