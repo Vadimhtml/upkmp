@@ -4,7 +4,11 @@ var gulp = require('gulp'),
     gulpConcat = require('gulp-concat'),
     gulpPug = require('gulp-pug'),
     gulpStylus = require('gulp-stylus'),
-    buildPath = './build';
+    gulpHtmlmin = require('gulp-htmlmin'),
+    buildPath = './build',
+    realFavicon = require ('gulp-real-favicon'),
+    fs = require('fs'),
+    FAVICON_DATA_FILE = 'faviconData.json';;
 
 function wrapPipe(taskFn) {
     return function (done) {
@@ -21,15 +25,15 @@ function wrapPipe(taskFn) {
     }
 }
 
-gulp.task('default', ['styl', 'pug', 'assets'], function (cb) { // js
+gulp.task('default', ['styl', 'pug', 'assets'], function (cb) {
     cb();
 });
 
 gulp.task('watch', ['default'], function () {
     gulp.watch('./src/**/*.styl', ['styl']);
     gulp.watch('./src/**/*.pug', ['pug']);
-    gulp.watch('./src/**/*.js', ['js']);
-    gulp.watch(['./src/**/*.jpg', './src/**/*.png', './src/**/*.gif'], ['assets']);
+    // gulp.watch('./src/**/*.js', ['js']);
+    // gulp.watch(['./src/**/*.jpg', './src/**/*.png', './src/**/*.gif'], ['assets']);
 });
 
 gulp.task('styl', wrapPipe(function (success, error) {
@@ -56,3 +60,74 @@ gulp.task('assets', wrapPipe(function (success, error) {
     return gulp.src(['./src/**/*.jpg', './src/**/*.png', './src/**/*.gif', './src/**/*.svg'])
         .pipe(gulp.dest(buildPath));
 }));
+
+gulp.task('generate-favicon', ['default'], function(done) {
+    realFavicon.generateFavicon({
+        masterPicture: 'src/Header__Logo.svg',
+        dest: buildPath,
+        iconsPath: '/',
+        design: {
+            ios: {
+                pictureAspect: 'backgroundAndMargin',
+                backgroundColor: '#4477cc',
+                margin: '14%',
+                assets: {
+                    ios6AndPriorIcons: false,
+                    ios7AndLaterIcons: false,
+                    precomposedIcons: false,
+                    declareOnlyDefaultIcon: true
+                }
+            },
+            desktopBrowser: {},
+            windows: {
+                pictureAspect: 'noChange',
+                backgroundColor: '#2d89ef',
+                onConflict: 'override',
+                assets: {
+                    windows80Ie10Tile: false,
+                    windows10Ie11EdgeTiles: {
+                        small: false,
+                        medium: true,
+                        big: false,
+                        rectangle: false
+                    }
+                }
+            },
+            androidChrome: {
+                pictureAspect: 'backgroundAndMargin',
+                margin: '17%',
+                backgroundColor: '#4477cc',
+                themeColor: '#ffffff',
+                manifest: {
+                    name: 'Сайт УПК-МП',
+                    display: 'standalone',
+                    orientation: 'notSet',
+                    onConflict: 'override',
+                    declared: true
+                },
+                assets: {
+                    legacyIcon: false,
+                    lowResolutionIcons: false
+                }
+            },
+            safariPinnedTab: {
+                pictureAspect: 'silhouette',
+                themeColor: '#4477cc'
+            }
+        },
+        settings: {
+            scalingAlgorithm: 'Mitchell',
+            errorOnImageTooSmall: false
+        },
+        markupFile: FAVICON_DATA_FILE
+    }, function() {
+        done();
+    });
+});
+
+gulp.task('assemble', ['generate-favicon'], function() {
+    gulp.src([ './build/**/*.html' ])
+        .pipe(realFavicon.injectFaviconMarkups(JSON.parse(fs.readFileSync(FAVICON_DATA_FILE)).favicon.html_code))
+        .pipe(gulpHtmlmin({collapseWhitespace: true}))
+        .pipe(gulp.dest(buildPath));
+});
