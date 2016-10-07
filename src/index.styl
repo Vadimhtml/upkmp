@@ -20,6 +20,8 @@ $Header__Logo__width = 303px
 
 $Header__ContactsItems__offsetX = 12px
 
+$Header__Contacts_madium__width = 200px
+
 $Footer__fontSize = 12px
 $Footer__fontHeight = 16px
 
@@ -57,6 +59,7 @@ body
   background-color $_Color__liteBlue
   padding $Header__padY 0
   position relative
+  overflow hidden
 
   &__Logo
     display block
@@ -90,7 +93,7 @@ body
     position absolute
     left 50%
     top 50%
-    transform: translate(-50%, -50%)
+    transform translate(-50%, -50%)
     text-shadow: 0 0 10px rgba(0, 0, 0, .8)
 
 .Footer
@@ -109,7 +112,8 @@ body
     &__Contacts
       position absolute
       right $_Section__offsetX - $Header__ContactsItems__offsetX
-      top $Header__padY + ceil(($Header__Logo__height / 2) - ($_Font_regular__height / 2))
+      top 50%
+      transform translate(0, -50%)
 
   .Section
     &_aircraft
@@ -120,6 +124,12 @@ body
       background-image url(territory_1600.jpg)
     &_garbage
       background-image url(garbage_1600.jpg)
+
+@media screen and (max-width: 800px) and (min-width: 641px) // Medium
+  .Header
+    &__Contacts
+      width $Header__Contacts_madium__width
+      text-align center
 
 @media screen and (max-width: 640px) // Small screen
   .Header
