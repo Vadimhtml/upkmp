@@ -6,6 +6,6 @@
 git clone git@github.com:Vadimhtml/upkmp.git
 cd upkmp
 npm install
-gulp
+gulp assemble
 ```
 * Сборка в `upkmp/build`
