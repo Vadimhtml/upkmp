@@ -21,7 +21,7 @@ function wrapPipe(taskFn) {
     }
 }
 
-gulp.task('default', ['styl', 'pug', 'js', 'assets'], function (cb) {
+gulp.task('default', ['styl', 'pug', 'assets'], function (cb) { // js
     cb();
 });
 
@@ -45,12 +45,12 @@ gulp.task('pug', wrapPipe(function (success, error) {
         .pipe(gulp.dest(buildPath));
 }));
 
-gulp.task('js', wrapPipe(function (success, error) {
-    return gulp.src(['./node_modules/jquery/dist/jquery.min.js', './src/**/*.js'])
-        .pipe(gulpConcat('index.js').on('error', error))
-        .pipe(gulpUglify().on('error', error))
-        .pipe(gulp.dest(buildPath));
-}));
+// gulp.task('js', wrapPipe(function (success, error) {
+//     return gulp.src(['./node_modules/jquery/dist/jquery.min.js', './src/**/*.js'])
+//         .pipe(gulpConcat('index.js').on('error', error))
+//         .pipe(gulpUglify().on('error', error))
+//         .pipe(gulp.dest(buildPath));
+// }));
 
 gulp.task('assets', wrapPipe(function (success, error) {
     return gulp.src(['./src/**/*.jpg', './src/**/*.png', './src/**/*.gif', './src/**/*.svg'])
