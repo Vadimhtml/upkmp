@@ -57,20 +57,20 @@ gulp.task('pug', wrapPipe(function (success, error) {
 // }));
 
 gulp.task('assets', wrapPipe(function (success, error) {
-    return gulp.src(['./src/**/*.jpg', './src/**/*.png', './src/**/*.gif', './src/**/*.svg'])
+    return gulp.src(['./src/**/*.jpg', './src/**/*.png', './src/**/*.gif', './src/**/*.svg', '!./src/Favicon.png'])
         .pipe(gulp.dest(buildPath));
 }));
 
 gulp.task('generate-favicon', ['default'], function(done) {
     realFavicon.generateFavicon({
-        masterPicture: 'src/Header__Logo.svg',
+        masterPicture: 'src/Favicon.png',
         dest: buildPath,
         iconsPath: '/',
         design: {
             ios: {
                 pictureAspect: 'backgroundAndMargin',
                 backgroundColor: '#4477cc',
-                margin: '14%',
+                margin: '0%',
                 assets: {
                     ios6AndPriorIcons: false,
                     ios7AndLaterIcons: false,
@@ -95,11 +95,11 @@ gulp.task('generate-favicon', ['default'], function(done) {
             },
             androidChrome: {
                 pictureAspect: 'backgroundAndMargin',
-                margin: '17%',
+                margin: '0%',
                 backgroundColor: '#4477cc',
-                themeColor: '#ffffff',
+                themeColor: '#333333',
                 manifest: {
-                    name: 'Сайт УПК-МП',
+                    name: 'УПК-МП',
                     display: 'standalone',
                     orientation: 'notSet',
                     onConflict: 'override',
