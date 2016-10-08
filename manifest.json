@@ -1,5 +1,5 @@
 {
-	"name": "\u0421\u0430\u0439\u0442 \u0423\u041f\u041a-\u041c\u041f",
+	"name": "\u0423\u041f\u041a-\u041c\u041f",
 	"icons": [
 		{
 			"src": "\/android-chrome-192x192.png",
@@ -12,6 +12,6 @@
 			"type": "image\/png"
 		}
 	],
-	"theme_color": "#ffffff",
+	"theme_color": "#333333",
 	"display": "standalone"
 }
