@@ -15,7 +15,7 @@
 - var Company__KPP = "772801001"
 
 doctype html
-html
+html(prefix="og: http://ogp.me/ns#")
     head
         title= Company__Name_short
         meta(charset="utf-8")
@@ -33,6 +33,12 @@ html
         meta(property="business:contact_data:email", content=Company__Email)
         meta(property="business:contact_data:phone_number", content=Company__Phone)
         meta(property="business:contact_data:website", content=Company__Site)
+
+        meta(property="og:title", content="Уборка воздушных судов, помещений, территорий, вывоз мусора")
+        meta(property="og:description", content="Общество с ограниченной ответственностью «Управленческая Компания Многоотраслевая Первая»")
+        meta(property="og:image", content="http://upkmp.ru/index_og.png")
+        meta(property="og:type", content="article")
+        meta(property="og:url", content="http://upkmp.ru")
 
         link(href="index.css", rel="stylesheet", type="text/css", media="screen")
         link(href="https://fonts.googleapis.com/css?family=Open+Sans:300&subset=cyrillic,cyrillic-ext,latin-ext", rel="stylesheet", type="text/css")
