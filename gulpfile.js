@@ -6,9 +6,9 @@ var gulp = require('gulp'),
     gulpStylus = require('gulp-stylus'),
     gulpHtmlmin = require('gulp-htmlmin'),
     buildPath = './build',
-    realFavicon = require ('gulp-real-favicon'),
+    realFavicon = require('gulp-real-favicon'),
     fs = require('fs'),
-    FAVICON_DATA_FILE = 'faviconData.json';;
+    FAVICON_DATA_FILE = 'faviconData.json';
 
 function wrapPipe(taskFn) {
     return function (done) {
@@ -61,7 +61,7 @@ gulp.task('assets', wrapPipe(function (success, error) {
         .pipe(gulp.dest(buildPath));
 }));
 
-gulp.task('generate-favicon', ['default'], function(done) {
+gulp.task('generate-favicon', ['default'], function (done) {
     realFavicon.generateFavicon({
         masterPicture: 'src/Favicon.png',
         dest: buildPath,
@@ -120,13 +120,13 @@ gulp.task('generate-favicon', ['default'], function(done) {
             errorOnImageTooSmall: false
         },
         markupFile: FAVICON_DATA_FILE
-    }, function() {
+    }, function () {
         done();
     });
 });
 
-gulp.task('assemble', ['generate-favicon'], function() {
-    gulp.src([ './build/**/*.html' ])
+gulp.task('assemble', ['generate-favicon'], function () {
+    gulp.src(['./build/**/*.html'])
         .pipe(realFavicon.injectFaviconMarkups(JSON.parse(fs.readFileSync(FAVICON_DATA_FILE)).favicon.html_code))
         .pipe(gulpHtmlmin({collapseWhitespace: true}))
         .pipe(gulp.dest(buildPath));

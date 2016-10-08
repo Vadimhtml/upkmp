@@ -3,9 +3,17 @@
 - var Company__Email = "inbox@upkmp.ru"
 - var Company__Phone = "+74952042976"
 - var Company__Phone_formated = "(495) 204-29-76"
+- var Company__Site = "http://upkmp.ru"
+- var Company__Street = "Бутлерова"
+- var Company__City = "Москва"
+- var Company__Country = "Россия"
+- var Company__Index = "117342"
+- var Company__Latitude = "55.641577"
+- var Company__Longitude = "37.548899"
 - var Company__OGRN = "1167746836234"
 - var Company__INN = "1167746836234"
 - var Company__KPP = "772801001"
+
 doctype html
 html
     head
@@ -16,6 +24,16 @@ html
         meta(name="format-detection", content="telephone=no")
         meta(http-equiv="x-rim-auto-match", content="none")
 
+        meta(property="place:location:latitude", content=Company__Latitude)
+        meta(property="place:location:longitude", content=Company__Longitude)
+        meta(property="business:contact_data:street_address", content=Company__Street)
+        meta(property="business:contact_data:locality", content=Company__City)
+        meta(property="business:contact_data:postal_code", content=Company__Index)
+        meta(property="business:contact_data:country_name", content=Company__Country)
+        meta(property="business:contact_data:email", content=Company__Email)
+        meta(property="business:contact_data:phone_number", content=Company__Phone)
+        meta(property="business:contact_data:website", content=Company__Site)
+
         link(href="index.css", rel="stylesheet", type="text/css", media="screen")
         link(href="https://fonts.googleapis.com/css?family=Open+Sans:300&subset=cyrillic,cyrillic-ext,latin-ext", rel="stylesheet", type="text/css")
 
@@ -24,9 +42,9 @@ html
             img.Header__Logo(src="Header__Logo.svg", onerror="this.onerror=null;this.src='Header__Logo.png'" alt= Company__Name_short)
             .Header__Contacts
                 a.Header__Phone(href="tel:" + Company__Phone)= Company__Phone_formated
-                wbr
+                    wbr
                 a.Header__Email(href="mailto:" + Company__Email)= Company__Email
-                wbr
+                    wbr
 
         .Section.Section_aircraft
             h1 — Уборка воздушных судов
@@ -37,4 +55,4 @@ html
         .Section.Section_garbage
             h2 — Вывоз мусора
 
-    footer.Footer= Company__Name_full + ", ОГРН " + Company__OGRN + ", ИНН " + Company__INN + ", КПП " + Company__KPP
+        footer.Footer= Company__Name_full + ", ОГРН " + Company__OGRN + ", ИНН " + Company__INN + ", КПП " + Company__KPP
