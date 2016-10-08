@@ -127,7 +127,12 @@ gulp.task('generate-favicon', ['default'], function (done) {
 
 gulp.task('assemble', ['generate-favicon'], function () {
     gulp.src(['./build/**/*.html'])
-        .pipe(realFavicon.injectFaviconMarkups(JSON.parse(fs.readFileSync(FAVICON_DATA_FILE)).favicon.html_code))
+        .pipe(realFavicon.injectFaviconMarkups(
+            JSON.parse(fs.readFileSync(FAVICON_DATA_FILE)).favicon.html_code,
+            {
+                keep: 'meta[property="og:image"]'
+            })
+        )
         .pipe(gulpHtmlmin({collapseWhitespace: true}))
         .pipe(gulp.dest(buildPath));
 });

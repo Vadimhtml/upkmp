@@ -18,6 +18,12 @@ doctype html
 html(prefix="og: http://ogp.me/ns#")
     head
         title= Company__Name_short
+
+        link(href="index.css", rel="stylesheet", type="text/css", media="screen")
+        link(href="https://fonts.googleapis.com/css?family=Open+Sans:300&subset=cyrillic,cyrillic-ext,latin-ext", rel="stylesheet", type="text/css")
+        link(rel="image_src", href="http://upkmp.ru/index_og.png")
+
+
         meta(charset="utf-8")
         meta(name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no")
 
@@ -36,15 +42,11 @@ html(prefix="og: http://ogp.me/ns#")
 
         meta(property="og:title", content="Уборка воздушных судов, помещений, территорий, вывоз мусора")
         meta(property="og:description", content="Общество с ограниченной ответственностью «Управленческая Компания Многоотраслевая Первая»")
-        link(rel="image_src", href="http://upkmp.ru/index_og.jpg")
-        meta(property="og:image", content="http://upkmp.ru/index_og.jpg")
+        meta(property="og:image", content="http://upkmp.ru/index_og.png")
         meta(property="og:image:width", content="512")
         meta(property="og:image:height", content="512")
         meta(property="og:type", content="article")
         meta(property="og:url", content="http://upkmp.ru")
-
-        link(href="index.css", rel="stylesheet", type="text/css", media="screen")
-        link(href="https://fonts.googleapis.com/css?family=Open+Sans:300&subset=cyrillic,cyrillic-ext,latin-ext", rel="stylesheet", type="text/css")
 
     body
         header.Header
